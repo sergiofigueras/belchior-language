@@ -101,7 +101,7 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 7. Behaviors not covered by unit tests results in build failures by default.
 8. Mutation testing should be enabled by default.
 9. If a behavior receives a single parameter, named parameters are optional. If it receives more than one parameter, it should be mandatory to use named parameters.
-
+10. Behaviors should have given/when/then blocks by default.
 
 ## Flow control statements examples
 | Flow command | Statement |
