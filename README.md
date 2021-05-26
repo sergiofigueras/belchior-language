@@ -1,13 +1,14 @@
 # Belchior Language Proposal
-A new programming language proposal, focused in maintainability and testability.
+A new JVM programming language proposal, focused in readability, maintainability and testability.
 
 # Reasonings behind this proposal
 - Code maintainability is crucial.
 - Code testability is a major.
 - Everything should be fully immutable, side-effects free.
-- No static methods, classes, or whatsoever.
+- No static methods.
+- No classes.
 - No inheritance.
-- Nullability is not allowed.
+- Null is not allowed.
 - No global variables.
 - No reflection.
 - No annotations.
@@ -22,7 +23,7 @@ A new programming language proposal, focused in maintainability and testability.
     }
   }
   
-  # Create a new behavior in the User block
+  # Create a new behavior-block in the User block
   on com.domain.User define `create new user` {
     requires {
       slf4j.info
@@ -56,5 +57,15 @@ A new programming language proposal, focused in maintainability and testability.
 2. `when` blocks can have no more than 5 instructions by default.
 3. `then` blocks can have no more than 10 instructions by default.
 4. `requires` blocks can be top-level or block-level.
-5. Brackets can be removed if the block have one instruction only.
+5. Brackets can be omitted if the block have one instruction only.
+6. Any block with cyclomatic complexity bigger than 4 results in build failure.
 
+## Flow control statements examples
+|--------------------------|
+| Flow command | Statement |
+|--------------|-----------|
+| If statement | `if <clause> {}` |
+| If-else statement | `if <clause> {} else {}` |
+| for i statement | `for 1..x.length {}` |
+| for-each statement | `for each in x {}` |
+|--------------------------|
