@@ -5,7 +5,7 @@ A new JVM programming language proposal, focused in readability, maintainability
 - The community can evolve it in different dictionaries and flavors.
 - Code maintainability is crucial.
 - Code testability is a major.
-- Tests are all 1st class citizens.
+- Testing is mandatory.
 - Fully immutable, side-effects free.
 - No static methods.
 - Blocks and behaviors instead of classes and methods.
