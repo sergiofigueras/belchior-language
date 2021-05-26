@@ -8,8 +8,8 @@ A new JVM programming language proposal, focused in readability, maintainability
 - Tests are all 1st class citizens.
 - Fully immutable, side-effects free.
 - No static methods.
-- No classes.
-- No inheritance.
+- Blocks and behaviors instead of classes and methods.
+- Extensibility instead of inheritance.
 - Null is not allowed.
 - No global variables.
 - No reflection.
