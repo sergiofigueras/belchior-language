@@ -1,5 +1,5 @@
 # Belchior Language Proposal
-A new JVM programming language proposal, focused in readability, maintainability, testability and extensibility. Any part of its dictionary can be modified according to the user needs and the compilation will perform accordingly to the selected dictionary. Rules and constraints defined at this proposal are only valid for the standard version. Make it on your own :).
+A new JVM programming language proposal, focused in readability, maintainability, testability and extensibility. Any part of its dictionary can be modified according to the community needs and the compilation will perform accordingly to the selected dictionary. Rules and constraints defined at this proposal are only valid for the standard version. Make it on your own :).
 
 # Reasonings behind this proposal
 - The community can evolve it in different dictionaries and flavors.
