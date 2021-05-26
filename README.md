@@ -2,9 +2,11 @@
 A new JVM programming language proposal, focused in readability, maintainability, testability and extensibility. Any part of its dictionary can be modified according to the user needs and the compilation will perform accordingly to the selected dictionary. Rules and constraints defined at this proposal are only valid for the standard version. Make it on your own :).
 
 # Reasonings behind this proposal
+- The community can evolve it in different dictionaries and flavors.
 - Code maintainability is crucial.
 - Code testability is a major.
-- Everything should be fully immutable, side-effects free.
+- Tests are all 1st class citizens.
+- Fully immutable, side-effects free.
 - No static methods.
 - No classes.
 - No inheritance.
@@ -123,8 +125,9 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 - `more than | bigger than` -> Checks if a numeric X value is bigger than Y.
 - `less than` -> Checks if a numeric X value is lower than Y.
 - `is` -> Checks if the value of X is equals to Y.
-- `is not` -< Checks if the value of X is not equals to Y.
-
+- `is not` -> Checks if the value of X is not equals to Y.
+- `''` -> Stores a String without interpolation.
+- `""` -> Stores a string with interpolation.
 
 
 
