@@ -123,7 +123,7 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 - `and not` -> Adds a new comparison clause to the expression (negative case).
 - `as` -> Labels an expression.
 - `more than | bigger than` -> Checks if a numeric X value is bigger than Y.
-- `less than` -> Checks if a numeric X value is lower than Y.
+- `less than | lower than` -> Checks if a numeric X value is lower than Y.
 - `is` -> Checks if the value of X is equals to Y.
 - `is not` -> Checks if the value of X is not equals to Y.
 - `''` -> Stores a String without interpolation.
