@@ -51,7 +51,7 @@ A new JVM programming language proposal, focused in readability, maintainability
     }
   }
 ```
-
+## Example Unit Tests
 ```
 on com.domain.User test `Should not create a new user with <name is 'Sergio' and age less than 18> yo` {
   when {
@@ -96,9 +96,9 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 4. `requires` blocks can be at the top-level or at the block-level.
 5. Brackets can be omitted if the block have one instruction only.
 6. Any block with cyclomatic complexity bigger than 4 results in build failure.
-7. Behaviors not covered by unit tests results in build warnings by default.
+7. Behaviors not covered by unit tests results in build failures by default.
 8. Mutation testing should be enabled by default.
-9. If a behavior receives a single parameter, named parameters are optional. If it receives more than one parameter, its mandatory to use named parameters.
+9. If a behavior receives a single parameter, named parameters are optional. If it receives more than one parameter, it should be mandatory to use named parameters.
 
 
 ## Flow control statements examples
