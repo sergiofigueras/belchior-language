@@ -7,7 +7,7 @@ A new JVM programming language proposal, focused in readability, maintainability
 - Code testability is a major.
 - Testing is mandatory.
 - Fully immutable, side-effects free.
-- No static methods.
+- No static methods or variables.
 - Blocks and behaviors instead of classes and methods.
 - Extensibility instead of inheritance.
 - Null is not allowed.
