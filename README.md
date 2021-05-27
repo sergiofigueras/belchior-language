@@ -78,7 +78,7 @@ on com.domain.User test `Should not create a user when <name is empty>` {
 
 on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects that a log call is made` {
   requires {
-    mock slf4j.info as logInfo
+    spy slf4j.info as logInfo
   }
   when {
     User.`create new user` with name, age as user
