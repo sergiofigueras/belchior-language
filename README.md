@@ -6,7 +6,7 @@ A new JVM programming language proposal, focused in readability, maintainability
 - Code testability is a major. (https://en.wikipedia.org/wiki/Software_testability)
 - Testing is mandatory. (https://stackoverflow.com/questions/90002/what-is-a-reasonable-code-coverage-for-unit-tests-and-why / https://github.com/theofidry/awesome-mutation-testing)
 - Focus on immutability, side-effects free (https://elizarov.medium.com/immutability-we-can-afford-10c0dcb8351d).
-- No static methods or variables (https://www.yegor256.com/2014/05/05/oop-alternative-to-utility-classes.html).
+- No global methods or variables (https://www.yegor256.com/2014/05/05/oop-alternative-to-utility-classes.html).
 - Blocks and behaviors instead of classes and methods. (https://dl.acm.org/doi/10.1145/359576.359579)
 - Null is not allowed. (https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/)
 - No reflection. (https://medium.com/the-telegraph-engineering/mirror-gazing-a-closer-look-at-the-good-and-bad-sides-of-java-reflection-884f65a4ef20)
