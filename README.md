@@ -92,6 +92,7 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 ```
 
 ## Constraints
+0. `given`, `when` and `then` blocks are mandatory.
 1. `given` blocks should not have no more than 5 instructions by default.
 2. `when` blocks should not have more than 5 instructions by default.
 3. `then` blocks should not have more than 8 instructions by default.
