@@ -55,7 +55,7 @@ A new JVM programming language proposal, focused in readability, maintainability
 ```
 ## Example Unit Tests
 ```
-on com.domain.User test `Should not create a new user with <name is 'Sergio' and age less than 18> yo` {
+on com.domain.User test `Should not create a new user with <name is 'Sergio' and age is 17> yo` {
   when {
     User.`create new user` with name, age
   }
