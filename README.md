@@ -17,9 +17,7 @@ A new programming language proposal based in LLVM, focused in readability, maint
   on com.domain def User {
     attrs {
       name, age
-    }
-    
-    
+    }    
   }
   
   # Create a new behavior in the User block
