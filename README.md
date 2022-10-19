@@ -1,5 +1,5 @@
 # Belchior Language Proposal
-A new JVM programming language proposal, focused in readability, maintainability, testability and extensibility. Any part of its dictionary can be modified according to the community needs and the compilation will perform accordingly to the selected dictionary. Rules and constraints defined at this proposal are only valid for the standard version. Make it on your own :).
+A new programming language proposal based in LLVM, focused in readability, maintainability, testability and extensibility. Any part of its dictionary can be modified according to the community needs and the compilation will perform accordingly to the selected dictionary. Rules and constraints defined at this proposal are only valid for the standard version. Make it on your own :).
 
 # Reasonings behind this proposal
 - Code maintainability is crucial. (https://www.coveros.com/13-ways-to-improve-maintainability/)
@@ -9,81 +9,55 @@ A new JVM programming language proposal, focused in readability, maintainability
 - No global methods or variables (https://www.yegor256.com/2014/05/05/oop-alternative-to-utility-classes.html).
 - Blocks and behaviors instead of classes and methods. (https://dl.acm.org/doi/10.1145/359576.359579)
 - Null is not allowed. (https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/)
-- No reflection. (https://medium.com/the-telegraph-engineering/mirror-gazing-a-closer-look-at-the-good-and-bad-sides-of-java-reflection-884f65a4ef20)
 - No annotations. (https://www.yegor256.com/2016/04/12/java-annotations-are-evil.html)
 
 ## Example Belchior program
 ```
   # Creating a new block in the namespace com.domain
-  on com.domain define User {
-    attributes {
-      name -> String
-      age -> String
+  on com.domain def User {
+    attrs {
+      name, age
     }
+    
+    
   }
   
   # Create a new behavior in the User block
-  on com.domain.User define `create new user` {
-    requires {
-      slf4j.info as logInfo
-    }
-    given {
-      User as user
+  on com.domain.User def `create new user` {
+    req {
+      log.info
     }
     when {
-      user.name not empty
-      if not user.age more than 18 {
-        Error 'Only users that are older than 18 are allowed'
+      age less than 18 {
+        raise ${condition}
       }
     }
     then {
-      logInfo with {
-        message = "Creating user ${user.name} with age ${user.age}"
-      }
+      log.info with message = "Creating user ${name} with age ${age}"
     }
   }
   
   start {
-    User.`create new user` with {
-      name = "Sergio"
-      age = 32
-    }
+    User.`create new user` with name = "Sergio" and age = 32
   }
 ```
 ## Example Unit Tests
 ```
-on com.domain.User test `Should not create a new user with <name is 'Sergio' and age is 17> yo` {
+on com.domain.User test "Create new user should fail if its younger than 18yo" {
   when {
-    User.`create new user` with name, age
+    User.`create new user` with name = 'Sergio' and age = 17
   }
   expects {
-    Error 'Only users that are older than 18 are allowed'
+    raised 'age less than 18'
   }
 }
 
-on com.domain.User test `Should not create a user when <name is empty>` {
+on com.domain.User test "Given a valid user expects that a log.info call is made" {
   when {
-    User.`create new user` with {
-      name = name
-      age = 20
-    }
+    User.`create new user` with name = 'Sergio' and age = 30
   }
   expects {
-    Error 'user.name not empty'
-  }
-}
-
-on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects that a log call is made` {
-  requires {
-    spy slf4j.info as logInfo
-  }
-  when {
-    User.`create new user` with name, age as user
-  }
-  expects {
-    logInfo with {
-      message = "Creating user ${user.name} with age ${user.age}"
-    }
+    executed log.info with message = "Creating user with age 30"
   }
 }
 ```
@@ -101,20 +75,13 @@ on com.domain.User test `Given a valid <name is 'Sergio' and age is 30> expects 
 9. If a behavior receives a single parameter, named parameters are optional. If it receives more than one parameter, it should be mandatory to use named parameters.
 10. Behaviors should have given/when/then blocks by default.
 
-## Flow control statements examples
-| Flow command | Statement |
-|--------------|-----------|
-| If statement | `if true is true { print(true) }` |
-| If-else statement | `if false is true { print('never') } else { print('false is not equal to true') }` |
-| for i statement | `for { 1..x.length as i } do { print(i) }` |
-| for-each statement | `for { list.objects as obj } do { print(obj) } }` |
-
 ## Equality
 - Structural equality should be supported using `==`
 - Referential equality should be supported using `===`
 - Content equality should be supported by using `equals` block call. 
 
 ## Operators
+- `=` -> Assigns a value
 - `++` -> Increment a numeric value.
 - `--` -> Decrement a numeric value.
 - `and ` -> Adds a new comparison clause to the expression.
