@@ -13,6 +13,7 @@ A new programming language proposal based on JVM, focused in readability, mainta
 
 ## Example Belchior program
 ```
+  # Comments are always made starting with #
   # Creating a new block and behavior in the namespace com.domain
   on com.domain.User def `create new user` {
     given age < 18 {
